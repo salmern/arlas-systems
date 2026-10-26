@@ -37,13 +37,9 @@ export default function CurrentWork() {
                 Live Production · Fintech Infrastructure · Nigeria
               </p>
               <p className="text-[14px] leading-[1.72] text-[#4a4a4a] mb-6 max-w-sm">
-                Architected and scaled the core payment infrastructure for a
-                high-volume Nigerian fintech. Engineered the backend services,
-                API integrations, and real-time transaction processing for a
-                live payment gateway and a distributed point-of-sale network.
-                Designed the system to handle 5,000+ daily transactions,
-                ensuring 99.9% uptime and seamless merchant operations across
-                multiple locations.
+               Building and scaling the core backend systems for ZainPay and ZainPOS at Betastack. The work involves solving complex engineering challenges in database performance, concurrency, and real-time transaction processing across interconnected services.
+
+I work across the stack, tracing issues, engineering solutions, and deploying changes to production. The focus is on making sure the infrastructure holds up under real workloads, processing 5,000+ daily transactions with 99.9% uptime for merchants across Nigeria.
               </p>
               <div className="flex gap-5">
                 <a
