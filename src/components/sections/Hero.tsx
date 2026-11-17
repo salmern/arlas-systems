@@ -83,17 +83,25 @@ export default function Hero() {
           className="mt-20 md:mt-28 pt-10 border-t border-[#e0dbd4] opacity-0 animate-fade-up"
           style={{ animationDelay: "0.65s", animationFillMode: "forwards" }}
         >
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
-            {[
-              { n: "6+", label: "Years in production engineering" },
-              { n: "5k+", label: "Daily transactions processed" },
-              { n: "3", label: "Core capability areas" },
-            ].map(({ n, label }) => (
-              <div key={label}>
-                <div className="text-[28px] font-light text-[#1e3a2f] leading-none mb-1">{n}</div>
-                <div className="text-[12px] text-[#4a4a4a] opacity-70 leading-snug">{label}</div>
-              </div>
-            ))}
+          <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
+            <div className="flex gap-10">
+              {[
+                { n: "6+", label: "Years in production engineering" },
+                { n: "5k+", label: "Daily transactions processed" },
+              ].map(({ n, label }) => (
+                <div key={label}>
+                  <div className="text-[28px] font-light text-[#1e3a2f] leading-none mb-1">{n}</div>
+                  <div className="text-[11px] text-[#4a4a4a] opacity-60 leading-snug">{label}</div>
+                </div>
+              ))}
+            </div>
+            {/* Live status indicator */}
+            <div className="flex items-center gap-2.5 sm:ml-auto">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1e3a2f] opacity-80" style={{ animation: "pulse 2s cubic-bezier(0.4,0,0.6,1) infinite" }} />
+              <span className="text-[11px] font-mono text-[#4a4a4a] opacity-55 tracking-wide">
+                Production fintech infrastructure · live
+              </span>
+            </div>
           </div>
         </div>
       </div>

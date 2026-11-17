@@ -193,6 +193,42 @@ function CaseStudyRow({
 
             {/* Tags + links */}
             <div className="lg:col-span-5">
+              {/* Architecture diagram for production case study */}
+              {cs.number === "01" && (
+                <div className="mb-7 border border-[#e0dbd4] overflow-hidden">
+                  <div className="px-4 py-3 border-b border-[#e0dbd4] flex items-center justify-between" style={{ background: "#f0ece6" }}>
+                    <span className="font-mono text-[9px] tracking-[0.14em] uppercase text-[#1e3a2f] opacity-70">System architecture</span>
+                    <span className="font-mono text-[8px] text-[#1e3a2f] opacity-50 border border-[#1e3a2f]/20 px-1.5 py-0.5">Live · Production</span>
+                  </div>
+                  <div className="p-4 space-y-2">
+                    {[
+                      { label: "MERCHANT TERMINALS", sub: "ZainPOS network · Nigeria", highlight: false },
+                      { label: "PAYMENT GATEWAY", sub: "ZainPay · transaction processing", highlight: true },
+                      { label: "BACKEND SERVICES", sub: "Rust · Node.js · PostgreSQL", highlight: true },
+                      { label: "WEBHOOK LAYER", sub: "Real-time settlement · notifications", highlight: false },
+                      { label: "RECONCILIATION", sub: "Automated · exception flagging", highlight: false },
+                    ].map(({ label, sub, highlight }) => (
+                      <div
+                        key={label}
+                        className="flex items-center justify-between px-3 py-2"
+                        style={{
+                          border: `1px solid ${highlight ? "rgba(30,58,47,0.4)" : "rgba(30,58,47,0.12)"}`,
+                          background: highlight ? "rgba(30,58,47,0.06)" : "transparent",
+                        }}
+                      >
+                        <span className="font-mono text-[9px] font-medium" style={{ color: highlight ? "#1e3a2f" : "#4a4a4a" }}>{label}</span>
+                        <span className="font-mono text-[8px] opacity-50" style={{ color: "#4a4a4a" }}>{sub}</span>
+                      </div>
+                    ))}
+                    <div className="pt-1">
+                      <div className="flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#1e3a2f] opacity-80 animate-pulse" />
+                        <span className="font-mono text-[8px] text-[#1e3a2f] opacity-60">5,000+ daily transactions · 99.9% uptime</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
               <div className="flex flex-wrap gap-2 mb-7">
                 {cs.tags.map((tag) => (
                   <span key={tag} className="px-3 py-1.5 text-[11px] text-[#1e3a2f] bg-[#e8f0eb] border border-[#1e3a2f]/15">
