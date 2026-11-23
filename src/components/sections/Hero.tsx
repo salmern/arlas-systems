@@ -31,7 +31,7 @@ export default function Hero() {
         >
           <span className="block w-8 h-px bg-[#1e3a2f]" aria-hidden="true" />
           <span className="text-[11px] font-medium tracking-[0.22em] uppercase text-[#1e3a2f]">
-            Engineering & Automation Practice
+            Business Technology & Automation
           </span>
         </div>
 
@@ -40,11 +40,9 @@ export default function Hero() {
           className="text-[46px] sm:text-[58px] md:text-[70px] lg:text-[82px] xl:text-[92px] font-light leading-[1.04] text-[#1a1a1a] text-balance max-w-5xl opacity-0 animate-fade-up"
           style={{ animationDelay: "0.2s", animationFillMode: "forwards" }}
         >
-          We engineer the systems
+          Better systems.
           <br />
-          <span className="text-[#1e3a2f]">that make businesses</span>
-          <br />
-          run better.
+          <span className="text-[#1e3a2f]">Smarter operations.</span>
         </h1>
 
         {/* Supporting line */}
@@ -52,8 +50,9 @@ export default function Hero() {
           className="mt-8 text-[18px] md:text-[20px] leading-[1.6] text-[#4a4a4a] max-w-xl opacity-0 animate-fade-up"
           style={{ animationDelay: "0.35s", animationFillMode: "forwards" }}
         >
-          Software engineering, AI automation, and systems integration —
-          built around how your business actually operates.
+          Arlas Systems helps businesses eliminate repetitive work, connect their
+          operations and build intelligent systems that make work simpler, faster
+          and more effective.
         </p>
 
         {/* CTAs */}
@@ -86,7 +85,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
             <div className="flex gap-10">
               {[
-                { n: "6+", label: "Years in production engineering" },
+                { n: "6+", label: "Years in production systems" },
                 { n: "5k+", label: "Daily transactions processed" },
               ].map(({ n, label }) => (
                 <div key={label}>

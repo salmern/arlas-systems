@@ -9,12 +9,12 @@ const caseStudies = [
     number: "01",
     category: "Payment Infrastructure",
     title: "Payment Gateway & Distributed POS Infrastructure",
-    client: "Betastack — ZainPay & ZainPOS · Nigeria",
-    nature: "Live production system",
-    problem: "A high-volume Nigerian fintech needed reliable backend infrastructure to process thousands of daily transactions across a payment gateway and a distributed network of merchant POS terminals — with the uptime and consistency that financial operations require.",
-    engineering: "Designed and engineered the backend services, API integrations, and real-time transaction processing pipeline. Implemented webhook infrastructure for instant settlement notifications, fault-tolerant account update pipelines, and the operational systems that keep merchant terminals running across multiple locations.",
-    outcome: "5,000+ daily transactions processed across the payment gateway and POS network. 99.9% uptime for merchant operations. Live production systems maintained and improved continuously.",
-    tags: ["Fintech", "Payment Processing", "Backend Engineering", "Distributed Systems"],
+    client: "Production experience at Betastack · ZainPay & ZainPOS · Nigeria",
+    nature: "Live production · Employment experience",
+    problem: "ZainPay and ZainPOS are live Nigerian fintech products requiring reliable backend infrastructure to process thousands of daily transactions — across a payment gateway and a distributed network of merchant POS terminals — with the uptime and consistency that financial operations demand. This work was performed as part of my engineering role at Betastack.",
+    engineering: "Designed and contributed to the backend services, API integrations, and real-time transaction processing pipeline. Worked on webhook infrastructure for instant settlement notifications, fault-tolerant account update pipelines, and the operational systems that keep merchant terminals running across multiple locations. Responsibilities included performance investigation, database optimisation, concurrency challenges, and reliability improvements across interconnected services.",
+    outcome: "Live production systems processing 5,000+ daily transactions across the payment gateway and POS network. 99.9% uptime for merchant operations. Systems actively maintained and improved.",
+    tags: ["Fintech", "Payment Processing", "Backend Systems", "Distributed Infrastructure"],
     links: [
       { label: "ZainPay", href: "https://zainpay.ng" },
       { label: "ZainPOS", href: "https://zainpos.ng" },
@@ -24,8 +24,8 @@ const caseStudies = [
     number: "02",
     category: "AI Automation",
     title: "AI-Powered Lead Research & Outreach System",
-    client: "B2B talent platform · Prototype",
-    nature: "Demonstrated capability",
+    client: "B2B talent platform · Independent project",
+    nature: "Independent project · Prototype",
     problem: "Sales teams lose significant time manually researching companies, scoring leads, and writing first-draft outreach. The quality is inconsistent and the volume that can be processed is limited by how many people are available to do the work.",
     engineering: "Built a supervised AI pipeline that takes a target profile, discovers and researches matching companies, scores and qualifies each lead with supporting evidence, and produces structured outreach sequences ready for human review. The system uses deterministic quality gates — no content is approved by AI confidence alone.",
     outcome: "Prototype demonstrating the full research-to-outreach pipeline. Human approval required before any outreach is sent. Designed for integration into existing sales operations.",
@@ -35,9 +35,9 @@ const caseStudies = [
   {
     number: "03",
     category: "AI Automation",
-    title: "Production Customer Support Agent",
-    client: "B2B payments company · Prototype",
-    nature: "Demonstrated capability",
+    title: "AI Customer Support System",
+    client: "B2B payments company · Independent project",
+    nature: "Prototype & capability demonstration",
     problem: "Support teams at financial services companies spend a large portion of their time on structured, repetitive queries — transaction lookups, status checks, ticket creation — where the answer follows a predictable pattern and the information already exists in their systems.",
     engineering: "Built a multi-channel support agent (voice and text) with a custom MCP server for structured data access, a deterministic decision engine for policy-bound responses, and the Claude Agent SDK for natural language. Every action is logged to an immutable audit trail. The AI layer handles language; the rules engine handles decisions.",
     outcome: "Prototype resolving the majority of common query types without human intervention. Escalation, ticket creation, and audit logging operational. Designed for deployment in regulated financial environments.",
@@ -48,8 +48,8 @@ const caseStudies = [
     number: "04",
     category: "Document Automation",
     title: "AI Proposal & Document Generation System",
-    client: "Professional services firm · Prototype",
-    nature: "Demonstrated capability",
+    client: "Professional services context · Independent project",
+    nature: "Independent project · Prototype",
     problem: "Professional service firms generate proposals, reports, and client documents repeatedly. The structure follows the same pattern each time. The variables are the content. Senior people spend time on formatting and drafting rather than on the substance.",
     engineering: "Built a system that takes structured discovery input and produces complete proposal drafts for human review. Each section can be regenerated, edited, or approved independently. Version history, human approval gates, PDF generation, and tracked delivery are all part of the workflow — the AI drafts, the human decides.",
     outcome: "Prototype producing review-ready proposals from discovery notes. All client-facing output requires explicit approval before delivery. Integrates with email delivery and maintains a full audit trail.",
@@ -60,8 +60,8 @@ const caseStudies = [
     number: "05",
     category: "Data Processing",
     title: "Retail Promotions Data Pipeline",
-    client: "Multi-store retail operation · Prototype",
-    nature: "Demonstrated capability",
+    client: "Multi-store retail context · Independent project",
+    nature: "Independent project · Prototype",
     problem: "Tracking promotions across dozens of stores manually is unreliable, time-consuming, and error-prone. Changes happen without notice. The team needed a system that tracked what was live, identified what had changed, and made that data accessible without manual effort.",
     engineering: "Built a fully automated scrape-verify-store pipeline using background job processing, drift detection, and a live filterable interface. Playwright handles extraction, BullMQ manages the job queue, and the system identifies and flags changes between runs. The UI gives the team immediate visibility into current promotions without touching a spreadsheet.",
     outcome: "Prototype demonstrating automated retail data collection, change detection, and operational reporting. Fully Dockerised for deployment.",
@@ -86,14 +86,14 @@ export default function Work() {
         >
           <div className="flex items-center gap-3 mb-7">
             <span className="block w-8 h-px bg-[#1e3a2f]" aria-hidden="true" />
-            <span className="text-[11px] font-medium tracking-[0.22em] uppercase text-[#1e3a2f]">Selected Work</span>
+            <span className="text-[11px] font-medium tracking-[0.22em] uppercase text-[#1e3a2f]">Selected Experience</span>
           </div>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <h2 className="text-[34px] md:text-[48px] font-light text-[#1a1a1a] leading-tight">
-              Engineering problems<br />we have solved.
+              What we&apos;ve built<br />and delivered.
             </h2>
             <p className="text-[13px] text-[#4a4a4a] opacity-60 max-w-xs md:text-right leading-relaxed">
-              Where a project is a prototype or demonstration, it is labelled honestly.
+              Production experience, independently built projects and capability demonstrations — each clearly labelled.
             </p>
           </div>
         </div>

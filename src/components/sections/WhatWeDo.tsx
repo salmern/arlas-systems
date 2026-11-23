@@ -188,7 +188,7 @@ const pillars = [
   },
   {
     number: "02",
-    title: "Software Engineering",
+    title: "Software & Systems",
     headline: "Custom systems built for how your business actually operates.",
     body: "Off-the-shelf software is built for the average business. If your operations are specific, your competitive edge lies in systems designed around your actual processes. We build internal platforms, operational dashboards, custom APIs, and backend infrastructure — engineered for real workloads, integrated with your existing tools.",
     examples: ["Internal platforms & tools", "Operational dashboards", "API design & development", "Backend infrastructure", "Data pipelines", "Custom business software"],

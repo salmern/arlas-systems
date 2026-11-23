@@ -7,27 +7,27 @@ const steps = [
   {
     number: "01",
     title: "Understand the operation",
-    body: "Before we write a line of code, we learn how the business works. Where the work comes from, how it moves through the organisation, where it gets stuck, and what that costs.",
+    body: "Before we recommend anything, we learn how the business works. Where the work comes from, how it moves through the organisation, where it gets stuck, and what that costs.",
   },
   {
     number: "02",
-    title: "Identify the leverage points",
-    body: "Not every inefficiency is worth engineering away. We identify the processes where automation or integration will produce the most meaningful improvement — and where it won't.",
+    title: "Identify what actually needs to change",
+    body: "Not every inefficiency is worth addressing through technology. We identify the specific processes where automation, integration or a new system will produce meaningful improvement — and we're honest about where it won't.",
   },
   {
     number: "03",
-    title: "Design the right solution",
-    body: "We propose a specific, scoped solution: what gets built, how it integrates with existing systems, what it replaces, and what the business will be able to do differently when it's running.",
+    title: "Choose the right approach",
+    body: "A business might ask us for an AI agent and discover that what it actually needs is a proper API integration, an automated workflow or a better-designed database. We propose what solves the problem — not what sounds impressive.",
   },
   {
     number: "04",
-    title: "Engineer and integrate",
-    body: "We build the system — backend services, automation workflows, integrations, or platforms — and connect it to the tools and data sources your business already uses.",
+    title: "Build and connect",
+    body: "We develop the solution — custom software, automation workflows, integrations or operational platforms — and connect it to the tools and data sources your business already uses.",
   },
   {
     number: "05",
     title: "Deploy and improve",
-    body: "We handle deployment, monitor the system in production, and continue refining it based on how the business actually uses it. We don't hand over and disappear.",
+    body: "We handle deployment, monitor the system in production and continue improving it based on how the business actually uses it. We don't hand over and disappear.",
   },
 ];
 
@@ -50,10 +50,10 @@ export default function HowWeWork() {
           </div>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <h2 className="text-[34px] md:text-[48px] font-light text-[#f9f7f4] leading-tight max-w-xl">
-              We work inside the business,<br />not at arm&apos;s length from it.
+              We start with the problem,<br />not the technology.
             </h2>
             <p className="text-[14px] text-[#f9f7f4] opacity-45 max-w-xs leading-relaxed md:text-right">
-              The difference between a system that works and one that doesn&apos;t is usually how well it was understood before it was built.
+              The right solution is rarely the most sophisticated one. It&apos;s the one that fits how the business actually operates.
             </p>
           </div>
         </div>

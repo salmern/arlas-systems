@@ -7,26 +7,27 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://arlassystems.com"),
-  title: "Arlas Systems — Engineering & Automation Practice",
+  title: "Arlas Systems — Better Systems. Smarter Operations.",
   description:
-    "We engineer the systems that make businesses run better. Software engineering, AI automation, and systems integration built around how your business actually operates.",
+    "Arlas Systems helps businesses eliminate repetitive work, connect their operations and build intelligent systems that make work simpler, faster and more effective. AI, automation, software and integrations.",
   keywords: [
     "business automation",
     "AI automation",
-    "software engineering",
+    "business process automation",
     "systems integration",
     "workflow automation",
     "AI agents",
-    "fintech engineering",
-    "backend engineering",
+    "fintech systems",
     "operational efficiency",
-    "engineering consultancy",
+    "business technology",
+    "intelligent workflows",
+    "custom business software",
   ],
   authors: [{ name: "Arlas Systems" }],
   openGraph: {
-    title: "Arlas Systems — Engineering & Automation Practice",
+    title: "Arlas Systems — Better Systems. Smarter Operations.",
     description:
-      "Software engineering, AI automation, and systems integration — built around how your business actually operates.",
+      "AI, automation, software and integrations — built around how your business actually operates.",
     type: "website",
     url: "https://arlassystems.com",
     siteName: "Arlas Systems",
@@ -34,8 +35,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Arlas Systems — Engineering & Automation Practice",
-    description: "We engineer the systems that make businesses run better.",
+    title: "Arlas Systems — Better Systems. Smarter Operations.",
+    description: "Better systems. Smarter operations. AI, automation, software and integrations.",
   },
   robots: { index: true, follow: true },
 };

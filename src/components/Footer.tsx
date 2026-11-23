@@ -51,7 +51,7 @@ export default function Footer() {
             &copy; {YEAR} Arlas Systems. All rights reserved.
           </p>
           <p className="text-[11px] font-mono text-[#f9f7f4] opacity-15 tracking-wide">
-            Engineering &amp; Automation Practice
+            Better Systems. Smarter Operations.
           </p>
         </div>
       </div>

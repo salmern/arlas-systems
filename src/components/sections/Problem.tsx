@@ -63,7 +63,7 @@ export default function Problem() {
           className={`mt-14 flex flex-col sm:flex-row sm:items-center gap-6 transition-all duration-700 delay-300 ${headInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
         >
           <p className="text-[15px] text-[#f9f7f4] opacity-50 max-w-lg leading-relaxed">
-            These aren&apos;t technology problems. They&apos;re operational problems that technology can solve — if the right systems are engineered for how your business actually works.
+            These aren&apos;t technology problems. They&apos;re operational problems that the right software, automation and integrations can solve — when built around how your business actually works.
           </p>
           <a
             href="#what-we-do"
