@@ -85,7 +85,7 @@ export default function Work() {
             </h2>
           </div>
           <p className="text-[12px] text-[#5a5a56] max-w-xs md:text-right leading-relaxed opacity-80">
-            Production experience, independent projects and prototypes — each clearly distinguished.
+            Select a project to read more.
           </p>
         </div>
 
@@ -137,16 +137,7 @@ function ProjectRow({ project, index, isOpen, onToggle, parentInView }: {
           </h3>
         </div>
         <div className="md:col-span-4 hidden md:block self-center">
-          <div>
-            <span className={`text-[10px] font-mono border px-2 py-0.5 tracking-wide ${
-              project.type === "Production experience"
-                ? "text-[#1e3a2f] border-[#1e3a2f]/30 bg-[#e8f0eb]"
-                : "text-[#5a5a56] border-[#e2ddd7]"
-            }`}>
-              {project.type}
-            </span>
-            <p className="text-[11px] font-mono text-[#5a5a56] opacity-45 mt-1.5">{project.typeNote}</p>
-          </div>
+          <p className="text-[11px] font-mono text-[#5a5a56] opacity-45">{project.typeNote}</p>
         </div>
         <div className="md:col-span-2 hidden md:flex justify-end">
           <span className="text-[20px] font-light text-[#5a5a56] opacity-30 group-hover:opacity-70 transition-opacity">
@@ -180,15 +171,9 @@ function ProjectRow({ project, index, isOpen, onToggle, parentInView }: {
                 <p className="text-[13px] leading-[1.65] text-[#111110]">{project.summary}</p>
               </div>
 
-              {/* Mobile type badge */}
+              {/* Mobile context note */}
               <div className="md:hidden">
-                <span className={`text-[10px] font-mono border px-2 py-0.5 tracking-wide ${
-                  project.type === "Production experience"
-                    ? "text-[#1e3a2f] border-[#1e3a2f]/30 bg-[#e8f0eb]"
-                    : "text-[#5a5a56] border-[#e2ddd7]"
-                }`}>
-                  {project.type}
-                </span>
+                <p className="text-[11px] font-mono text-[#5a5a56] opacity-45">{project.typeNote}</p>
               </div>
 
               {/* Tags */}
