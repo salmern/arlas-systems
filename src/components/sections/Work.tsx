@@ -9,7 +9,6 @@ const projects = [
     n: "01",
     title: "Payment Gateway & POS Infrastructure",
     category: "Fintech Infrastructure",
-    type: "Production",
     typeNote: "Engineering role at Betastack · ZainPay & ZainPOS · Nigeria",
     summary: "Backend infrastructure for a live Nigerian payment gateway and distributed POS network. 5,000+ daily transactions. 99.9% uptime.",
     problem: "ZainPay and ZainPOS required reliable backend infrastructure for high-volume financial operations across a distributed merchant network. Work performed within my engineering role at Betastack — not an Arlas Systems client engagement.",
@@ -21,49 +20,45 @@ const projects = [
     n: "02",
     title: "AI Lead Research & Outreach System",
     category: "AI Automation",
-    type: "Personal project",
     typeNote: "B2B talent platform context",
     summary: "AI pipeline that researches and qualifies B2B leads, then produces review-ready outreach sequences. Human approval before any contact is made.",
     problem: "Sales teams lose time manually researching companies and writing first-draft outreach. Volume is limited by available people, not available information.",
     work: "Supervised AI pipeline with ICP refinement, company discovery via Apify, website research via Firecrawl, lead scoring with deterministic quality gates, and structured outreach drafts. No content is sent without human review.",
     tags: ["AI Agents", "Workflow Automation", "Lead Intelligence", "Human-in-the-loop"],
-    links: [{ label: "GitHub", href: "https://github.com/salmern/salman-koya-lead-outreach-agent" }],
+    links: [],
   },
   {
     n: "03",
     title: "AI Customer Support System",
     category: "AI Automation",
-    type: "Personal project",
-    typeNote: "B2B payments context · Prototype",
+    typeNote: "B2B payments context",
     summary: "Multi-channel support agent (voice and text) that resolves structured queries — lookups, ticket creation, escalations — without human intervention.",
     problem: "Support teams at financial services companies spend a large portion of time on structured, repetitive queries where the answer follows a predictable pattern.",
     work: "Voice and text channels, custom MCP server for structured data access, deterministic decision engine for policy-bound responses, Claude Agent SDK for language. Every action logged to an immutable audit trail.",
     tags: ["AI Agents", "Voice Interface", "Financial Services", "Audit Trail"],
-    links: [{ label: "GitHub", href: "https://github.com/salmern/relaypay-support-agent" }],
+    links: [],
   },
   {
     n: "04",
     title: "AI Proposal Generation System",
     category: "Document Automation",
-    type: "Personal project",
-    typeNote: "Professional services context · Prototype",
+    typeNote: "Professional services context",
     summary: "Turns discovery-call notes into structured client proposals. AI drafts each section — humans review and approve before anything reaches a client.",
     problem: "Professional service firms generate proposals repeatedly. The structure follows the same pattern each time. Senior people spend time on drafting rather than substance.",
     work: "Structured input → AI-drafted sections → human review and approval gates → PDF generation → tracked email delivery. Full version history and audit trail. No client-facing output without explicit approval.",
     tags: ["Document Automation", "AI Drafting", "Human Approval", "PDF Delivery"],
-    links: [{ label: "GitHub", href: "https://github.com/salmern/koya-proposals" }],
+    links: [],
   },
   {
     n: "05",
     title: "Retail Promotions Data Pipeline",
     category: "Data Processing",
-    type: "Personal project",
-    typeNote: "Multi-store retail context · Prototype",
+    typeNote: "Multi-store retail context",
     summary: "Automated pipeline that scrapes, verifies and tracks retail promotions. Drift detection flags what has changed between runs.",
     problem: "Tracking promotions across dozens of stores manually is unreliable and time-consuming. Changes happen without notice.",
     work: "Playwright scraper, BullMQ job queue, MySQL persistence, drift detection, Next.js filterable UI. Fully Dockerised. The team reviews results rather than collecting them.",
     tags: ["Data Pipeline", "Process Automation", "Retail Operations", "Background Jobs"],
-    links: [{ label: "GitHub", href: "https://github.com/salmern/salman-promotion-aggregator" }],
+    links: [],
   },
 ];
 
@@ -185,16 +180,18 @@ function ProjectRow({ project, index, isOpen, onToggle, parentInView }: {
                 ))}
               </div>
 
-              {/* Links */}
-              <div className="flex flex-wrap gap-4 pt-1">
-                {project.links.map(link => (
-                  <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-1.5 text-[11px] font-medium tracking-[0.1em] uppercase text-[#5a5a56] border-b border-[#5a5a56]/30 pb-0.5 hover:text-[#1e3a2f] hover:border-[#1e3a2f] transition-colors">
-                    {link.label}
-                    <ArrowUpRight size={10} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                  </a>
-                ))}
-              </div>
+              {/* Links — only where available */}
+              {project.links.length > 0 && (
+                <div className="flex flex-wrap gap-4 pt-1">
+                  {project.links.map(link => (
+                    <a key={link.label} href={link.href} target="_blank" rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-1.5 text-[11px] font-medium tracking-[0.1em] uppercase text-[#5a5a56] border-b border-[#5a5a56]/30 pb-0.5 hover:text-[#1e3a2f] hover:border-[#1e3a2f] transition-colors">
+                      {link.label}
+                      <ArrowUpRight size={10} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>
