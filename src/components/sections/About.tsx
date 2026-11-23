@@ -7,17 +7,17 @@ const principles = [
   {
     number: "01",
     title: "Understand before building",
-    body: "We take time to understand how a business operates before deciding what needs to change or what technology should be introduced. The problem always comes before the solution.",
+    body: "The problem always comes before the solution. We learn how the business works before deciding what needs to change.",
   },
   {
     number: "02",
-    title: "The right solution, not the latest technology",
-    body: "We don't apply AI to every problem. Sometimes the answer is a better integration, a well-designed database or a simple automated workflow. We choose the most appropriate approach for the specific situation.",
+    title: "Right solution, not latest technology",
+    body: "We don't apply AI to every problem. We choose the most appropriate approach — whether that's automation, an integration, or better software.",
   },
   {
     number: "03",
-    title: "Built for real business operations",
-    body: "We create solutions designed around actual business needs — real workloads, real constraints, long-term reliability and practical usefulness. Software that works in practice, not just in a demonstration.",
+    title: "Built for real operations",
+    body: "Every solution is designed around actual business needs — real workloads, real constraints and long-term reliability.",
   },
 ];
 
@@ -69,33 +69,17 @@ export default function About() {
 
             {/* Right — copy */}
             <div className="lg:col-span-7">
-              <div className="space-y-5 mb-10">
-                <p className="text-[16px] md:text-[17px] leading-[1.78] text-[#1a1a1a]">
-                  Arlas Systems helps businesses rethink how work gets done. By combining
-                  software, AI, automation and integrations, we build practical solutions
-                  that simplify operations, improve efficiency and create room for growth.
-                </p>
-                <p className="text-[15px] leading-[1.78] text-[#4a4a4a]">
-                  We believe in understanding the problem before choosing the technology.
-                  Sometimes the answer is AI. Sometimes it&apos;s better software, a smarter
-                  integration or simply connecting systems that should already work together.
-                </p>
-                <p className="text-[15px] leading-[1.78] text-[#4a4a4a]">
-                  Our focus is always the same: making businesses work better. Not through
-                  the most complex solution, but through the most appropriate one — built
-                  around the way the business actually operates.
-                </p>
-              </div>
-
-              {/* Differentiator callout */}
-              <div
-                className="border-l-4 border-[#1e3a2f] pl-5 py-1 mb-10"
-              >
-                <p className="text-[15px] leading-[1.7] text-[#1a1a1a] font-medium">
-                  &ldquo;We don&apos;t start with technology. We start with understanding
-                  the problem. The technology follows.&rdquo;
-                </p>
-              </div>
+              <p className="text-[16px] md:text-[17px] leading-[1.78] text-[#1a1a1a] mb-8">
+                Arlas Systems helps businesses rethink how work gets done. By combining
+                software, AI, automation and integrations, we build practical solutions
+                that simplify operations, improve efficiency and create room for growth.
+              </p>
+              <p className="text-[15px] leading-[1.78] text-[#4a4a4a]">
+                We don&apos;t start with technology. We start with the problem — and choose
+                the most appropriate solution from there, whether that&apos;s AI, better
+                software, a smarter integration or simply connecting systems that should
+                already work together.
+              </p>
             </div>
           </div>
         </div>

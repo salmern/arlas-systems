@@ -7,27 +7,22 @@ const steps = [
   {
     number: "01",
     title: "Understand the operation",
-    body: "Before we recommend anything, we learn how the business works. Where the work comes from, how it moves through the organisation, where it gets stuck, and what that costs.",
+    body: "We learn how the business works before recommending anything — where work comes from, where it gets stuck and what that costs.",
   },
   {
     number: "02",
-    title: "Identify what actually needs to change",
-    body: "Not every inefficiency is worth addressing through technology. We identify the specific processes where automation, integration or a new system will produce meaningful improvement — and we're honest about where it won't.",
+    title: "Identify what needs to change",
+    body: "Not every inefficiency is worth addressing. We identify where automation, integration or new software will produce meaningful improvement — and we're honest where it won't.",
   },
   {
     number: "03",
     title: "Choose the right approach",
-    body: "A business might ask us for an AI agent and discover that what it actually needs is a proper API integration, an automated workflow or a better-designed database. We propose what solves the problem — not what sounds impressive.",
+    body: "A business might ask for an AI agent and need an API integration instead. We propose what actually solves the problem, not what sounds impressive.",
   },
   {
     number: "04",
-    title: "Build and connect",
-    body: "We develop the solution — custom software, automation workflows, integrations or operational platforms — and connect it to the tools and data sources your business already uses.",
-  },
-  {
-    number: "05",
-    title: "Deploy and improve",
-    body: "We handle deployment, monitor the system in production and continue improving it based on how the business actually uses it. We don't hand over and disappear.",
+    title: "Build, connect and improve",
+    body: "We develop the solution, integrate it with existing tools and stay involved after deployment. We don't hand over and disappear.",
   },
 ];
 
