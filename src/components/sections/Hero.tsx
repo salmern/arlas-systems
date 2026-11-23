@@ -31,19 +31,17 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 lg:px-16 w-full pb-16 md:pb-24 pt-28 md:pt-0 md:flex md:flex-col md:justify-end md:min-h-screen">
 
-        {/* Top label — appears at header level */}
-        <div className="hidden md:block absolute top-0 left-6 md:left-10 lg:left-16 pt-16 md:pt-24">
-          <div className="flex items-center gap-3"
+        {/* Main headline */}
+        <div className="mb-10 md:mb-12">
+          {/* Eyebrow — sits directly above headline */}
+          <div className="flex items-center gap-3 mb-6"
             style={{ opacity: 0, animation: "fadeUp 0.6s 0.1s cubic-bezier(0.16,1,0.3,1) forwards" }}>
             <span className="rule" aria-hidden="true" />
             <span className="text-[11px] font-medium tracking-[0.22em] uppercase text-[#1e3a2f]">
               Business Technology & Automation
             </span>
           </div>
-        </div>
 
-        {/* Main headline */}
-        <div className="mb-10 md:mb-12">
           <h1
             ref={h1Ref}
             className="font-display text-[58px] sm:text-[72px] md:text-[90px] lg:text-[108px] xl:text-[124px] font-normal leading-[0.95] tracking-tight text-[#111110]"
