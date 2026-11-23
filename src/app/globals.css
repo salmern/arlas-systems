@@ -13,7 +13,7 @@
   --color-border-dark: #c4bdb4;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-display: var(--font-playfair);
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
 }
 
 :root {
