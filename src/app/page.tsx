@@ -1,6 +1,5 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/sections/Hero";
-import MarqueeStrip from "@/components/MarqueeStrip";
 import Problem from "@/components/sections/Problem";
 import WhatWeDo from "@/components/sections/WhatWeDo";
 import Industries from "@/components/sections/Industries";
@@ -16,7 +15,6 @@ export default function Home() {
       <Navigation />
       <main>
         <Hero />
-        <MarqueeStrip />
         <Problem />
         <WhatWeDo />
         <Industries />

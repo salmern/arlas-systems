@@ -4,128 +4,104 @@ import { useRef, useState } from "react";
 import { useInView } from "motion/react";
 import { ArrowRight, Check } from "lucide-react";
 
-// ─── Enquiry form ─────────────────────────────────────────────────────────────
-
 const PROBLEM_TYPES = [
   "Manual processes taking too much staff time",
   "Systems and tools that don't share data",
   "Need a custom platform or internal tool",
-  "AI or automation opportunity in the business",
+  "AI or automation opportunity",
   "Something else",
 ];
 
 const INDUSTRIES = [
-  "Financial services or fintech",
-  "Real estate or property",
+  "Financial services / fintech",
+  "Real estate / property",
   "Professional services",
-  "Retail or e-commerce",
-  "Operations or logistics",
+  "Retail / e-commerce",
+  "Operations / logistics",
   "Healthcare",
   "Other",
 ];
 
-function EnquiryForm() {
-  const [step, setStep] = useState<"form" | "sent">("form");
-  const [fields, setFields] = useState({
-    name: "",
-    organisation: "",
-    problemType: "",
-    industry: "",
-    description: "",
-  });
-  const [errors, setErrors] = useState<Record<string, string>>({});
+type Fields = { name: string; org: string; industry: string; problemType: string; description: string };
+type Errors = Partial<Record<keyof Fields, string>>;
 
-  const validate = () => {
-    const e: Record<string, string> = {};
-    if (!fields.name.trim()) e.name = "Required";
-    if (!fields.problemType) e.problemType = "Please select one";
-    if (!fields.description.trim()) e.description = "Required";
-    return e;
+function EnquiryForm() {
+  const [fields, setFields] = useState<Fields>({ name: "", org: "", industry: "", problemType: "", description: "" });
+  const [errors, setErrors] = useState<Errors>({});
+  const [sent, setSent] = useState(false);
+
+  const set = (k: keyof Fields, v: string) => {
+    setFields(f => ({ ...f, [k]: v }));
+    setErrors(e => ({ ...e, [k]: "" }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const submit = (e: React.FormEvent) => {
     e.preventDefault();
-    const errs = validate();
+    const errs: Errors = {};
+    if (!fields.name.trim()) errs.name = "Required";
+    if (!fields.problemType) errs.problemType = "Please select one";
+    if (!fields.description.trim()) errs.description = "Required";
     if (Object.keys(errs).length) { setErrors(errs); return; }
 
     const subject = encodeURIComponent("Arlas Systems — Project Enquiry");
     const body = encodeURIComponent(
-      `Name: ${fields.name}\nOrganisation: ${fields.organisation || "—"}\nIndustry: ${fields.industry || "—"}\nProblem type: ${fields.problemType}\n\n${fields.description}`
+      `Name: ${fields.name}\nOrganisation: ${fields.org || "—"}\nIndustry: ${fields.industry || "—"}\nProblem: ${fields.problemType}\n\n${fields.description}`
     );
-    window.location.href = `mailto:hello@arlassystems.com?subject=${subject}&body=${body}`;
-    setStep("sent");
+    window.location.href = `mailto:salmanx550@gmail.com?subject=${subject}&body=${body}`;
+    setSent(true);
   };
 
-  if (step === "sent") {
-    return (
-      <div className="border border-[#2d5240] p-7">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-6 h-6 rounded-full bg-[#1e3a2f] flex items-center justify-center flex-shrink-0">
-            <Check size={12} className="text-[#f9f7f4]" />
-          </div>
-          <span className="text-[14px] text-[#f9f7f4]">Your email client has opened with a pre-filled message.</span>
+  if (sent) return (
+    <div className="border border-[#2d5240]/40 p-7 md:p-8">
+      <div className="flex items-center gap-3 mb-3">
+        <div className="w-5 h-5 rounded-full bg-[#1e3a2f] flex items-center justify-center flex-shrink-0">
+          <Check size={11} className="text-[#f9f7f4]" />
         </div>
-        <p className="text-[13px] text-[#f9f7f4] opacity-45 leading-relaxed">
-          Review and send it when ready. We&apos;ll respond within one business day.
-        </p>
-        <button
-          onClick={() => setStep("form")}
-          className="mt-5 text-[11px] font-mono text-[#f9f7f4] opacity-30 hover:opacity-60 transition-opacity"
-        >
-          Start again →
-        </button>
+        <span className="text-[13px] text-[#f9f7f4]">Your email client has opened with a pre-filled message.</span>
       </div>
-    );
-  }
+      <p className="text-[12px] text-[#f9f7f4] opacity-35 mb-4">Review and send it when ready.</p>
+      <button onClick={() => setSent(false)} className="text-[11px] font-mono text-[#f9f7f4] opacity-25 hover:opacity-50 transition-opacity">
+        Start over →
+      </button>
+    </div>
+  );
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-4">
-      {/* Row 1 */}
+    <form onSubmit={submit} noValidate className="space-y-5">
+      {/* Name + Org */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-[10px] font-mono tracking-[0.15em] uppercase text-[#f9f7f4] opacity-45 mb-1.5">
-            Name <span className="text-[#6FA88B]">*</span>
-          </label>
-          <input
-            type="text"
-            value={fields.name}
-            onChange={e => setFields(f => ({ ...f, name: e.target.value }))}
-            className={`w-full bg-transparent border px-3.5 py-2.5 text-[13px] text-[#f9f7f4] placeholder-[#f9f7f4]/20 focus:outline-none focus:border-[#3d6b52] transition-colors ${errors.name ? "border-[#e07040]" : "border-[#2d2d2d]"}`}
-            placeholder="Your name"
-          />
-          {errors.name && <p className="text-[10px] text-[#e07040] mt-1">{errors.name}</p>}
-        </div>
-        <div>
-          <label className="block text-[10px] font-mono tracking-[0.15em] uppercase text-[#f9f7f4] opacity-45 mb-1.5">
-            Organisation
-          </label>
-          <input
-            type="text"
-            value={fields.organisation}
-            onChange={e => setFields(f => ({ ...f, organisation: e.target.value }))}
-            className="w-full bg-transparent border border-[#2d2d2d] px-3.5 py-2.5 text-[13px] text-[#f9f7f4] placeholder-[#f9f7f4]/20 focus:outline-none focus:border-[#3d6b52] transition-colors"
-            placeholder="Company or business name"
-          />
-        </div>
+        {([
+          { key: "name" as const, label: "Name", required: true, placeholder: "Your name" },
+          { key: "org"  as const, label: "Organisation", required: false, placeholder: "Company or business" },
+        ]).map(({ key, label, required, placeholder }) => (
+          <div key={key}>
+            <label className="block text-[10px] font-mono tracking-[0.15em] uppercase text-[#f9f7f4] opacity-40 mb-1.5">
+              {label}{required && <span className="text-[#4a7c5f] ml-0.5">*</span>}
+            </label>
+            <input
+              type="text" value={fields[key]} onChange={e => set(key, e.target.value)}
+              placeholder={placeholder}
+              className={`w-full bg-transparent border px-3.5 py-2.5 text-[13px] text-[#f9f7f4] placeholder-[#f9f7f4]/15 focus:outline-none focus:border-[#4a7c5f] transition-colors ${errors[key] ? "border-[#e07040]" : "border-[#2a2a28]"}`}
+            />
+            {errors[key] && <p className="text-[10px] text-[#e07040] mt-1">{errors[key]}</p>}
+          </div>
+        ))}
       </div>
 
       {/* Problem type */}
       <div>
-        <label className="block text-[10px] font-mono tracking-[0.15em] uppercase text-[#f9f7f4] opacity-45 mb-1.5">
-          What best describes the problem? <span className="text-[#6FA88B]">*</span>
+        <label className="block text-[10px] font-mono tracking-[0.15em] uppercase text-[#f9f7f4] opacity-40 mb-2">
+          What best describes the problem?<span className="text-[#4a7c5f] ml-0.5">*</span>
         </label>
         <div className="flex flex-wrap gap-2">
           {PROBLEM_TYPES.map(opt => (
-            <button
-              key={opt}
-              type="button"
-              onClick={() => { setFields(f => ({ ...f, problemType: opt })); setErrors(er => ({ ...er, problemType: "" })); }}
-              className={`text-[11px] px-3 py-1.5 border transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#3d6b52] ${
+            <button key={opt} type="button"
+              onClick={() => set("problemType", opt)}
+              className={`text-[11px] px-3 py-1.5 border transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#4a7c5f] ${
                 fields.problemType === opt
-                  ? "border-[#3d6b52] bg-[#1e3a2f]/40 text-[#f9f7f4]"
-                  : "border-[#2d2d2d] text-[#f9f7f4] opacity-45 hover:opacity-80 hover:border-[#3d2d2d]"
-              }`}
-            >
+                  ? "border-[#4a7c5f] bg-[#1e3a2f]/30 text-[#f9f7f4]"
+                  : "border-[#2a2a28] text-[#f9f7f4] opacity-40 hover:opacity-70"
+              }`}>
               {opt}
             </button>
           ))}
@@ -135,21 +111,16 @@ function EnquiryForm() {
 
       {/* Industry */}
       <div>
-        <label className="block text-[10px] font-mono tracking-[0.15em] uppercase text-[#f9f7f4] opacity-45 mb-1.5">
-          Industry
-        </label>
+        <label className="block text-[10px] font-mono tracking-[0.15em] uppercase text-[#f9f7f4] opacity-40 mb-2">Industry</label>
         <div className="flex flex-wrap gap-2">
           {INDUSTRIES.map(opt => (
-            <button
-              key={opt}
-              type="button"
-              onClick={() => setFields(f => ({ ...f, industry: f.industry === opt ? "" : opt }))}
-              className={`text-[11px] px-3 py-1.5 border transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#3d6b52] ${
+            <button key={opt} type="button"
+              onClick={() => set("industry", fields.industry === opt ? "" : opt)}
+              className={`text-[11px] px-3 py-1.5 border transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#4a7c5f] ${
                 fields.industry === opt
-                  ? "border-[#3d6b52] bg-[#1e3a2f]/40 text-[#f9f7f4]"
-                  : "border-[#2d2d2d] text-[#f9f7f4] opacity-45 hover:opacity-80"
-              }`}
-            >
+                  ? "border-[#4a7c5f] bg-[#1e3a2f]/30 text-[#f9f7f4]"
+                  : "border-[#2a2a28] text-[#f9f7f4] opacity-40 hover:opacity-70"
+              }`}>
               {opt}
             </button>
           ))}
@@ -158,107 +129,55 @@ function EnquiryForm() {
 
       {/* Description */}
       <div>
-        <label className="block text-[10px] font-mono tracking-[0.15em] uppercase text-[#f9f7f4] opacity-45 mb-1.5">
-          Tell us more <span className="text-[#6FA88B]">*</span>
+        <label className="block text-[10px] font-mono tracking-[0.15em] uppercase text-[#f9f7f4] opacity-40 mb-1.5">
+          Brief description<span className="text-[#4a7c5f] ml-0.5">*</span>
         </label>
-        <textarea
-          rows={3}
-          value={fields.description}
-          onChange={e => setFields(f => ({ ...f, description: e.target.value }))}
-          className={`w-full bg-transparent border px-3.5 py-2.5 text-[13px] text-[#f9f7f4] placeholder-[#f9f7f4]/20 focus:outline-none focus:border-[#3d6b52] transition-colors resize-none ${errors.description ? "border-[#e07040]" : "border-[#2d2d2d]"}`}
-          placeholder="Describe the operational challenge, the process or the system you need built."
+        <textarea rows={3} value={fields.description} onChange={e => set("description", e.target.value)}
+          placeholder="Describe the challenge, the process or the system you need built."
+          className={`w-full bg-transparent border px-3.5 py-2.5 text-[13px] text-[#f9f7f4] placeholder-[#f9f7f4]/15 focus:outline-none focus:border-[#4a7c5f] transition-colors resize-none ${errors.description ? "border-[#e07040]" : "border-[#2a2a28]"}`}
         />
         {errors.description && <p className="text-[10px] text-[#e07040] mt-1">{errors.description}</p>}
       </div>
 
       <div className="flex items-center gap-4 pt-1">
-        <button
-          type="submit"
-          className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#f9f7f4] text-[#1a1a1a] text-[12px] font-medium tracking-[0.12em] uppercase hover:bg-white transition-colors"
-        >
+        <button type="submit"
+          className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-[#f9f7f4] text-[#111110] text-[12px] font-medium tracking-[0.1em] uppercase hover:bg-white transition-colors">
           Send enquiry
           <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
         </button>
-        <p className="text-[10px] font-mono text-[#f9f7f4] opacity-25">
-          Opens your email client · No forms backend
-        </p>
+        <p className="text-[10px] font-mono text-[#f9f7f4] opacity-20">Opens your email client</p>
       </div>
     </form>
   );
 }
 
-// ─── Section ──────────────────────────────────────────────────────────────────
-
 export default function Contact() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section id="contact" className="bg-[#1e3a2f] py-24 md:py-32 overflow-hidden relative">
-      {/* Brand watermark */}
-      <div
-        className="absolute top-0 right-0 bottom-0 w-[300px] md:w-[420px] opacity-[0.06] pointer-events-none select-none overflow-hidden"
-        aria-hidden="true"
-      >
+    <section ref={ref} id="contact" className="bg-[#1e3a2f] py-24 md:py-32 overflow-hidden relative">
+      <div className="absolute top-0 right-0 bottom-0 w-[280px] md:w-[380px] opacity-[0.05] pointer-events-none select-none overflow-hidden" aria-hidden="true">
         <img src="/arlas-stacked-dark.svg" alt="" width={460} height={267} className="absolute top-10 right-0 w-full h-auto" />
       </div>
 
-      {/* Grid */}
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.04]"
-        style={{
-          backgroundImage: "linear-gradient(to right, #f9f7f4 1px, transparent 1px), linear-gradient(to bottom, #f9f7f4 1px, transparent 1px)",
-          backgroundSize: "50px 50px",
-        }}
-        aria-hidden="true"
-      />
-
       <div className="max-w-7xl mx-auto px-6 md:px-10 lg:px-16 relative">
-        <div
-          ref={ref}
-          className={`transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-        >
-          <div className="flex items-center gap-3 mb-10">
-            <span className="block w-8 h-px bg-[#3d6b52]" aria-hidden="true" />
-            <span className="text-[11px] font-medium tracking-[0.22em] uppercase text-[#3d6b52]">Get in Touch</span>
-          </div>
+        <div className={`transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
 
-            {/* Left — heading */}
+            {/* Left */}
             <div className="lg:col-span-5">
-              <h2 className="text-[38px] sm:text-[48px] md:text-[54px] font-light text-[#f9f7f4] leading-[1.07] mb-6">
-                Let&apos;s make your business work better.
+              <p className="text-[11px] font-medium tracking-[0.22em] uppercase text-[#4a7c5f] mb-8">Get in Touch</p>
+              <h2 className="font-display text-[36px] sm:text-[46px] md:text-[52px] font-normal italic text-[#f9f7f4] leading-[1.07] mb-6">
+                Let&apos;s make your<br />business work better.
               </h2>
-              <p className="text-[15px] leading-[1.72] text-[#f9f7f4] opacity-55 mb-10 max-w-sm">
+              <p className="text-[14px] leading-[1.72] text-[#f9f7f4] opacity-50 max-w-sm">
                 Tell us about an operational challenge, a process you&apos;d like to improve or a system you need built.
               </p>
-
-              {/* Contact note */}
-              <div className="border-t border-[#f9f7f4]/10 pt-8 space-y-4">
-                <div>
-                  <p className="text-[10px] font-mono tracking-[0.18em] uppercase text-[#f9f7f4] opacity-30 mb-1">
-                    Company email
-                  </p>
-                  <p className="text-[13px] font-mono text-[#f9f7f4] opacity-35">
-                    hello@arlassystems.com
-                  </p>
-                  <p className="text-[10px] font-mono text-[#f9f7f4] opacity-20 mt-0.5">
-                    Domain mailbox — configuring shortly
-                  </p>
-                </div>
-                <div>
-                  <p className="text-[10px] font-mono tracking-[0.18em] uppercase text-[#f9f7f4] opacity-30 mb-1">
-                    Company LinkedIn
-                  </p>
-                  <p className="text-[13px] font-mono text-[#f9f7f4] opacity-35">
-                    Arlas Systems page — coming soon
-                  </p>
-                </div>
-              </div>
             </div>
 
-            {/* Right — enquiry form */}
+            {/* Right — form */}
             <div className="lg:col-span-7">
               <EnquiryForm />
             </div>
